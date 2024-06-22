@@ -1,5 +1,5 @@
 import cookie from "react-cookies";
-import "./Login.css";
+import "./LoginPage.css";
 
 export default function Login() {
   return (

@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import edit from "images/edit.png";
+import edit from "assets/images/edit.png";
 import { useLocation } from "react-router-dom";
-import logout from "images/logout.png";
+import logout from "assets/images/logout.png";
 import cookie from "react-cookies";
-import back from "images/back.png";
+import back from "assets/images/back.png";
 import "./Navbar.css";
 
 export default function Navbar() {

@@ -1,7 +1,7 @@
-import axios from "utils/api";
+import axios from "services/api";
 import "./AddNoteBtn.css";
 import { useContext } from "react";
-import { editContext } from "pages/Edit";
+import { editContext } from "pages/EditPage/EditPage";
 
 export default function AddNoteBtn() {
   const { notes } = useContext(editContext);

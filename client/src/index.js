@@ -1,6 +1,6 @@
 import ReactDOM from "react-dom/client";
 import cookie from "react-cookies";
-import Login from "./pages/Login";
+import Login from "./pages/LoginPage/LoginPage";
 import "index.css";
 import {
   Route,
@@ -9,13 +9,13 @@ import {
   BrowserRouter,
   Outlet,
 } from "react-router-dom";
-import Navbar from "components/Navbar";
-import Edit from "pages/Edit";
-import Home from "pages/Home";
+import Navbar from "components/Common/Navbar/Navbar";
+import Edit from "pages/EditPage/EditPage";
+import Home from "pages/ViewPage/ViewPage";
 import { useEffect, useState } from "react";
-import axios from "utils/api";
-import useArray from "utils/useArray";
-import Loading from "components/Loading";
+import axios from "services/api";
+import useArray from "hooks/useArray";
+import Loading from "components/Common/Loading/Loading";
 
 export default function App() {
   const loggedIn = cookie.load("token");

@@ -22,18 +22,21 @@ export default function NotesContainer({ NoteType, notes }) {
   const actualCols = new Array(cols).fill().map(() => []);
   const colsHeight = new Array(cols).fill(0);
 
-  for (let note of notes) {
+  for (let index = 0; index < notes.length; index++) {
+    const note = notes[index];
     let height = 1;
     if (note.image) {
       height = 2;
     }
     const minIndex = colsHeight.indexOf(Math.min(...colsHeight));
-    actualCols[minIndex].push(<NoteType key={note._id} note={note} />);
+    actualCols[minIndex].push(
+      <NoteType key={note._id} index={index} note={note} />
+    );
     colsHeight[minIndex] += height;
   }
   return (
-    <div ref={containerRef} className="notes-container m-auto">
-      <div className="row w-100 m-auto">
+    <div ref={containerRef} className="notes-container">
+      <div className="row m-auto">
         {actualCols.map((element, index) => {
           return (
             <div key={index} className="col">

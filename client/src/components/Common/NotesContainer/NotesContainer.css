@@ -1,8 +1,6 @@
 .notes-container {
-  padding-left: 0 !important;
-  margin-left: 0 !important;
   margin: auto !important;
-  padding-top: 80px;
+  margin-top: 80px !important;
   padding-bottom: 10px;
 }
 

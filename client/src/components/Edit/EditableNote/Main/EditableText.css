@@ -1,0 +1,27 @@
+.Editable-Note > .text-box:hover {
+  cursor: text;
+}
+
+.Editable-Note > .text-box {
+  word-wrap: break-word;
+  word-break: break-word;
+  white-space: pre-line;
+  width: 95%;
+  padding: 5px;
+  overflow-y: scroll;
+}
+.Editable-Note > .text-box * {
+  display: inline-block;
+}
+.Editable-Note > .text-box:empty::before {
+  content: attr(placeholder);
+  color: #555;
+}
+
+.Editable-Note > .text-box:focus-visible {
+  border: none;
+  outline: none !important;
+}
+.Editable-Note > .text-box > * {
+  background-color: transparent !important;
+}
