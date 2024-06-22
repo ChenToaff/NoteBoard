@@ -7,7 +7,7 @@
   min-height: 200px;
   padding: 6px 8px 4px 8px;
   text-align: left;
-  max-height: 470px;
+  /* max-height: 470px; */
 }
 
 .Editable-Note > .Last-Modified {

@@ -8,7 +8,7 @@
   white-space: pre-line;
   width: 95%;
   padding: 5px;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 .Editable-Note > .text-box * {
   display: inline-block;

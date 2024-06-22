@@ -21,9 +21,6 @@ body {
 .row {
   flex-wrap: nowrap;
 }
-.col {
-  padding: 0;
-}
 
 ::-webkit-scrollbar {
   width: 7px;

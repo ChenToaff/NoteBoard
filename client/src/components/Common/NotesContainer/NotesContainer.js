@@ -36,10 +36,10 @@ export default function NotesContainer({ NoteType, notes }) {
   }
   return (
     <div ref={containerRef} className="notes-container">
-      <div className="row m-auto">
+      <div className="row">
         {actualCols.map((element, index) => {
           return (
-            <div key={index} className="col">
+            <div key={index} className="col p-0">
               {element}
             </div>
           );
