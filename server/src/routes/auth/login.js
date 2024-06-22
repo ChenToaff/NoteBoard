@@ -1,4 +1,3 @@
-const sha256 = require("crypto-js/sha256");
 const jwt = require("jsonwebtoken");
 const { JWT_SECRET } = require("../../../config");
 
@@ -8,7 +7,7 @@ module.exports = async (req, res) => {
   if (!userName || !password) {
     return res.status(400).send("missing values");
   }
-  const access_token = jwt.sign({ rold: "admin" }, JWT_SECRET, {
+  const access_token = jwt.sign({ role: "admin" }, JWT_SECRET, {
     expiresIn: "1h",
   });
 
