@@ -9,7 +9,16 @@ connectMongo();
 server.use(cors());
 server.use(express.json());
 server.use(require("./middleware/responses"));
-server.use("/api/", require("./routes"));
+
+server.use("/api/notes", require("./routes/noteRoutes"));
+server.use("/api/auth", require("./routes/authRoutes"));
+server.use("/api/images", [
+  /*require("./middleware/auth"),*/
+  express.static(path.join(process.cwd(), "images")),
+]);
+server.use(function (req, res, next) {
+  res.status(404).send("Sorry can't find that!");
+});
 
 server.use(function (err, req, res, next) {
   console.error(err.stack);
