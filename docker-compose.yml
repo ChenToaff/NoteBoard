@@ -1,9 +1,9 @@
 services:
-  server:
+  backend:
     restart: always
-    build: ./server
-    container_name: notes-server
-    hostname: server
+    build: ./backend
+    container_name: notes-backend
+    hostname: backend
     environment:
       - NODE_ENV=production
       - MONGO_URI=mongodb://mongo.docker/Notes
@@ -12,8 +12,8 @@ services:
 
   client:
     restart: always
-    container_name: notes-client
-    hostname: client
+    container_name: notes-frontend
+    hostname: frontend
     build: ./client
 
   mongo:

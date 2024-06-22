@@ -6,26 +6,26 @@ in Notes, an "Admin" can edit the Notes for everyone to see.
 
 <img src="Readme Files/Notes.gif">
 
-# [`The Server`](server/App.js):
+# [`Backend`](backend/src/app.js):
 
 Built in Express - Node.js.
 
 ## Usage:
 
 ```javascript
-cd server
+cd backend
 npm install
 npm start
 ```
 
-# [`The Client`](client/App.js):
+# [`Frontend`](frontend/src/index.js):
 
 Built in React and Bootstrap.
 
 ## Usage:
 
 ```javascript
-cd client
+cd frontend
 npm install
 npm start
 ```
