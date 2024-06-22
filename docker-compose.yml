@@ -5,6 +5,7 @@ services:
     container_name: notes-server
     hostname: server
     environment:
+      - NODE_ENV=production
       - MONGO_URI=mongodb://mongo.docker/Notes
     depends_on:
       - mongo
