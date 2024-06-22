@@ -1,7 +1,4 @@
-const jwt = require("jsonwebtoken");
-const { JWT_SECRET } = require("../../../config");
-
-module.exports = async (req, res) => {
+const login = async (req, res) => {
   let { userName, password } = req.body;
 
   if (!userName || !password) {
@@ -13,3 +10,5 @@ module.exports = async (req, res) => {
 
   return res.status(200).send(access_token);
 };
+
+module.exports = { login };
