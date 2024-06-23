@@ -3,7 +3,7 @@ import edit from "assets/images/edit.png";
 import { useLocation } from "react-router-dom";
 import logout from "assets/images/logout.png";
 import cookie from "react-cookies";
-import back from "assets/images/back.png";
+import home from "assets/images/home.png";
 import "./Navbar.css";
 
 export default function Navbar() {
@@ -14,33 +14,31 @@ export default function Navbar() {
     onClick: null,
   });
 
-  useEffect(() => {
-    let href = "/edit";
-    let src = edit;
-    let onClick = null;
-    if (location.pathname == "/edit") {
-      src = logout;
-      href = "/login";
-      onClick = () => cookie.remove("token", { path: "/" });
-    } else if (location.pathname == "/login") {
-      src = back;
-      href = "/";
-    }
-    setProps({
-      src,
-      onClick,
-      href,
-    });
-  }, [location]);
-
   return (
     <nav className="navbar navbar-light bg-light">
       <a className="navbar-brand ps-3" href="/">
         NoteBoard
       </a>
-      <a onClick={props.onClick} href={props.href} className="navbar-brand">
-        <img src={props.src} width="30" height="30" alt="edit"></img>
-      </a>
+
+      {location.pathname === "/home" && (
+        <a className="ms-auto" href={"/edit"}>
+          <img src={edit} width="30" height="30" alt="edit"></img>
+        </a>
+      )}
+      {location.pathname === "/edit" && (
+        <a className="ms-auto" href={"/home"}>
+          <img src={home} width="30" height="30" alt="edit"></img>
+        </a>
+      )}
+      {location.pathname !== "/login" && (
+        <a
+          className="mx-3"
+          onClick={() => cookie.remove("token", { path: "/" })}
+          href={props.href}
+        >
+          <img src={logout} width="30" height="30" alt="logout"></img>
+        </a>
+      )}
     </nav>
   );
 }

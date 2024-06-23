@@ -35,16 +35,16 @@ export default function App() {
   return (
     <>
       <BrowserRouter>
-        <Navbar></Navbar>
+        <Navbar />
         <Routes>
           <Route element={loggedIn ? <Outlet /> : <Navigate to="/login" />}>
             <Route path="/edit" element={<Edit notes={notes} />} />
+            <Route path="/home" element={<Home notes={notes} />} />
           </Route>
-          <Route path="/home" element={<Home notes={notes} />} />
 
           <Route
             path="/login"
-            element={loggedIn ? <Navigate to="/edit" /> : <Login />}
+            element={loggedIn ? <Navigate to="/home" /> : <Login />}
           />
           <Route path="*" element={<Navigate to="/home" />} />
         </Routes>
