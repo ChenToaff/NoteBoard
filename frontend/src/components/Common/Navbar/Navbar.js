@@ -36,7 +36,7 @@ export default function Navbar() {
   return (
     <nav className="navbar navbar-light bg-light">
       <a className="navbar-brand ps-3" href="/">
-        Notes
+        NoteBoard
       </a>
       <a onClick={props.onClick} href={props.href} className="navbar-brand">
         <img src={props.src} width="30" height="30" alt="edit"></img>
