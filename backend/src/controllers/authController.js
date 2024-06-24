@@ -26,4 +26,8 @@ const logout = async (req, res) => {
   return res.status(200);
 };
 
-module.exports = { login, logout };
+const check = async (req, res) => {
+  return res.status(200);
+};
+
+module.exports = { login, logout, check };
