@@ -13,8 +13,17 @@ const login = async (req, res) => {
   const accessToken = jwt.sign({ role: "admin" }, JWT_SECRET, {
     expiresIn: "1h",
   });
-  res.cookie("token", accessToken, { maxAge: 900000, httpOnly: true });
+  res.cookie("token", accessToken, {
+    maxAge: 60 * 60 * 1000,
+    httpOnly: true,
+    secure: true,
+  });
   return res.status(200);
 };
 
-module.exports = { login };
+const logout = async (req, res) => {
+  res.clearCookie("token");
+  return res.status(200);
+};
+
+module.exports = { login, logout };
