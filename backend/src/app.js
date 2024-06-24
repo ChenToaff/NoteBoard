@@ -4,10 +4,12 @@ const server = express();
 const connectMongo = require("./db/mongoConfig");
 const { PORT } = require("./config");
 const path = require("path");
+const cookieParser = require("cookie-parser");
 connectMongo();
 
 server.use(cors());
 server.use(express.json());
+server.use(cookieParser());
 server.use(require("./middleware/responses"));
 
 server.use("/api/notes", require("./routes/noteRoutes"));
