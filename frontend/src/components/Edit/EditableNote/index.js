@@ -20,7 +20,7 @@ export default function EditableNote({ note, index }) {
 
   return (
     <editableNoteContext.Provider value={{ setNote }}>
-      <div class="catg-card">
+      <div className="catg-card">
         <div data-color={note.color} className="Editable-Note">
           <EditableTitle note={note} />
           <DeleteNoteBtn note={note} />
