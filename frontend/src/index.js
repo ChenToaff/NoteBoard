@@ -1,40 +1,32 @@
 import ReactDOM from "react-dom/client";
-import cookie from "react-cookies";
 import Login from "./pages/LoginPage/LoginPage";
 import "index.css";
-import {
-  Route,
-  Routes,
-  Navigate,
-  BrowserRouter,
-  Outlet,
-} from "react-router-dom";
+import { Route, Routes, Navigate, BrowserRouter } from "react-router-dom";
 import Navbar from "components/Common/Navbar/Navbar";
 import Edit from "pages/EditPage/EditPage";
 import Home from "pages/ViewPage/ViewPage";
+import { useEffect } from "react";
 import ProtectedRoute from "components/Common/ProtectedRoute/ProtectedRoute";
 import { Provider, useSelector } from "react-redux";
 import store from "store/store";
 import authService from "services/authService";
+import Loading from "components/Common/Loading/Loading";
 
 export default function App() {
-  const loggedIn = cookie.load("token");
-  const notes = useArray([]);
+  const { loading } = useSelector((state) => state.auth);
 
   useEffect(() => {
-    async function loadData() {
-      const res = await axios.get("/notes");
-      notes.set(res.data);
-    }
-    loadData();
+    authService.checkAuth();
   }, []);
 
+  if (loading) {
+    return <Loading />;
+  }
   return (
     <>
-      <AuthProvider>
-        <BrowserRouter>
-          <Navbar />
-          <Routes>
+      <BrowserRouter>
+        <Navbar />
+        <Routes>
           <Route
             path="/edit"
             element={
@@ -43,7 +35,7 @@ export default function App() {
               </ProtectedRoute>
             }
           />
-            <Route
+          <Route
             path="/home"
             element={
               <ProtectedRoute>
@@ -52,10 +44,9 @@ export default function App() {
             }
           />
           <Route path="/login" element={<Login />} />
-            <Route path="*" element={<Navigate to="/home" />} />
-          </Routes>
-        </BrowserRouter>
-      </AuthProvider>
+          <Route path="*" element={<Navigate to="/home" />} />
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }

@@ -1,33 +1,44 @@
-import cookie from "react-cookies";
 import "./LoginPage.css";
+import authService from "services/authService";
+import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 export default function Login() {
+  const navigate = useNavigate();
+
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+
+  if (isAuthenticated) navigate("/");
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    const { username, password } = Object.fromEntries(new FormData(e.target));
+    await authService.login(username, password);
+  }
+
   return (
     <form
-      onSubmit={() => {
-        cookie.save("token", "True", { path: "/" });
-        return false;
-      }}
-      className="login-page form-signin text-center needs-validation"
+      onSubmit={handleSubmit}
+      className="login-page form-signin needs-validation"
     >
-      <h1 className="h3 mb-3 font-weight-normal">Please sign in</h1>
+      <h1 className="h3 mb-3">Login</h1>
       <input
         type="text"
+        name="username"
         className="form-control"
         placeholder="Username"
-        pattern="(Admin|admin)"
         required
         autoFocus
       />
       <input
         type="password"
+        name="password"
         className="form-control"
         placeholder="Password"
         required
-        pattern="(Admin|admin)"
       ></input>
-      <button className="btn btn-dark" type="submit">
-        Sign in
+      <button className="btn btn-dark w-100" type="submit">
+        Login
       </button>
     </form>
   );
