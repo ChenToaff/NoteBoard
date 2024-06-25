@@ -2,7 +2,7 @@ import Image from "components/Common/Image/Image";
 import axios from "services/api";
 import "./EditableImage.css";
 
-import { editableNoteContext } from "components/Edit/EditableNote";
+import { editableNoteContext } from "components/Edit/EditableNote/EditableNote";
 import { useContext, useState } from "react";
 import Loading from "components/Common/Loading/Loading";
 

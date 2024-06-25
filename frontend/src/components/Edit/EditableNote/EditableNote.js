@@ -1,10 +1,10 @@
-import DeleteNoteBtn from "./Header/DeleteNoteBtn";
-import EditableTitle from "./Header/EditableTitle";
-import EditableText from "./Main/EditableText";
-import EditableImage from "./Main/EditableImage";
-import ColorPicker from "./Footer/ColorPicker";
-import AddImageBtn from "./Footer/AddImageBtn";
-import "./index.css";
+import DeleteNoteBtn from "./DeleteNoteBtn/DeleteNoteBtn";
+import EditableTitle from "./EditableTitle/EditableTitle";
+import EditableText from "./EditableText/EditableText";
+import EditableImage from "./EditableImage/EditableImage";
+import ColorPicker from "./ColorPicker/ColorPicker";
+import AddImageBtn from "./AddImageBtn/AddImageBtn";
+import "./EditableNote.css";
 import { createContext, useContext, useState } from "react";
 import Loading from "components/Common/Loading/Loading";
 import { editContext } from "pages/EditPage/EditPage";

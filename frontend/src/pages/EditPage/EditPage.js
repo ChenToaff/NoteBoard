@@ -1,7 +1,7 @@
 import { createContext, useEffect } from "react";
-import EditableNote from "../../components/Edit/EditableNote";
+import EditableNote from "components/Edit/EditableNote/EditableNote";
 import NotesContainer from "components/Common/NotesContainer/NotesContainer";
-import AddNoteBtn from "../../components/Edit/AddNoteBtn/AddNoteBtn";
+import AddNoteBtn from "components/Edit/AddNoteBtn/AddNoteBtn";
 import useArray from "hooks/useArray";
 import axiosInstance from "services/api";
 

@@ -2,7 +2,7 @@ import axios from "services/api";
 import { useContext, useState } from "react";
 import useUpdateEffect from "hooks/useUpdateEffect";
 import "./EditableTitle.css";
-import { editableNoteContext } from "components/Edit/EditableNote";
+import { editableNoteContext } from "components/Edit/EditableNote/EditableNote";
 
 export default function EditableTitle({ note }) {
   const [value, setValue] = useState(note.title);

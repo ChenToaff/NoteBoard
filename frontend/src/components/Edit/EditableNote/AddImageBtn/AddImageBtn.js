@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { editableNoteContext } from "components/Edit/EditableNote";
+import { editableNoteContext } from "components/Edit/EditableNote/EditableNote";
 import axios from "services/api";
 import "./AddImageBtn.css";
 

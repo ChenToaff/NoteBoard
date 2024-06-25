@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import axios from "services/api";
-import { editableNoteContext } from "components/Edit/EditableNote";
+import { editableNoteContext } from "components/Edit/EditableNote/EditableNote";
 import "./ColorPicker.css";
 
 export default function ColorPicker({ note }) {
