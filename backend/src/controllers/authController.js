@@ -18,16 +18,16 @@ const login = async (req, res) => {
     httpOnly: true,
     secure: true,
   });
-  return res.status(200);
+  return res.status(200).send();
 };
 
 const logout = async (req, res) => {
   res.clearCookie("token");
-  return res.status(200);
+  return res.status(200).send();
 };
 
 const check = async (req, res) => {
-  return res.status(200);
+  return res.status(200).send();
 };
 
 module.exports = { login, logout, check };
