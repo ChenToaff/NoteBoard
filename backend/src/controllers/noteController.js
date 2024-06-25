@@ -1,27 +1,28 @@
 const NoteService = require("../services/noteService");
 const fs = require("fs");
 const path = require("path");
+const asyncHandler = require("../middleware/asyncHandler");
 
-const createNote = async (req, res) => {
+const createNote = asyncHandler(async (req, res) => {
   const note = await NoteService.createNote();
   res.status(201).json(note);
-};
+});
 
-const getNotes = async (req, res) => {
+const getNotes = asyncHandler(async (req, res) => {
   const notes = await NoteService.getNotes();
   res.json(notes);
-};
+});
 
-const getNoteById = async (req, res) => {
+const getNoteById = asyncHandler(async (req, res) => {
   const note = await NoteService.getNoteById(req.params.id);
   if (note) {
     res.json(note);
   } else {
     res.status(404).json({ message: "Note not found" });
   }
-};
+});
 
-const updateNote = async (req, res) => {
+const updateNote = asyncHandler(async (req, res) => {
   const { title, content, color, image } = req.body;
   const id = req.params.id;
   const note = await NoteService.getNoteById(id);
@@ -54,15 +55,15 @@ const updateNote = async (req, res) => {
   } else {
     res.status(404).json({ message: "Note not found" });
   }
-};
+});
 
-const deleteNote = async (req, res) => {
+const deleteNote = asyncHandler(async (req, res) => {
   const note = await NoteService.deleteNote(req.params.id);
   if (note) {
     res.json({ message: "Note removed" });
   } else {
     res.status(404).json({ message: "Note not found" });
   }
-};
+});
 
 module.exports = { createNote, updateNote, getNotes, getNoteById, deleteNote };
