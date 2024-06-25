@@ -33,7 +33,7 @@ export default function Navbar() {
       {location.pathname !== "/login" && (
         <a
           className="mx-3"
-          onClick={() => authService.logout()}
+          onClick={async () => await authService.logout()}
           href={props.href}
         >
           <img src={logout} width="30" height="30" alt="logout"></img>
