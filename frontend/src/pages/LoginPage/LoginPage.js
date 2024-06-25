@@ -42,7 +42,7 @@ export default function Login() {
         required
       ></input>
       <button className="btn btn-dark w-100" type="submit">
-        login
+        Login
       </button>
       {error && (
         <div class="alert alert-danger mt-3" role="alert">
