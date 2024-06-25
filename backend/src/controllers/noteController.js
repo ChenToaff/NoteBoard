@@ -22,20 +22,32 @@ const getNoteById = async (req, res) => {
 };
 
 const updateNote = async (req, res) => {
-  const { title, content, image, color } = req.body;
+  const { title, content, color, image } = req.body;
   const id = req.params.id;
-  const note = NoteService.getNoteById(id);
-  if (note && note.image && image) {
-    const imagPath = path.join(
-      process.cwd(),
-      `images/${note.image.split("/").pop()}`
-    );
-    fs.unlink(imagPath, (err) => {});
+  const note = await NoteService.getNoteById(id);
+  let imageSRC = note.image;
+
+  if (req.body.image === null) {
+    imageSRC = null;
+  } else if (req.file) {
+    if (note.image) {
+      const imagePath = path.join(
+        process.cwd(),
+        `/images/${note.image.split("/").pop()}`
+      );
+      try {
+        await fs.unlink(imagePath);
+      } catch (err) {
+        console.error("Error deleting previous image:", err);
+      }
+    }
+    imageSRC = `/api/images/${req.file.filename}`;
   }
   const updatedNote = await NoteService.updateNote(req.params.id, {
     title,
     content,
     color,
+    image: imageSRC,
   });
   if (updatedNote) {
     res.json(updatedNote);
