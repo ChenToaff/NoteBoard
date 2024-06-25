@@ -22,7 +22,7 @@ const getNoteById = async (req, res) => {
 };
 
 const updateNote = async (req, res) => {
-  const { title, content, image } = req.body;
+  const { title, content, image, color } = req.body;
   const id = req.params.id;
   const note = NoteService.getNoteById(id);
   if (note && note.image && image) {
@@ -35,9 +35,10 @@ const updateNote = async (req, res) => {
   const updatedNote = await NoteService.updateNote(req.params.id, {
     title,
     content,
+    color,
   });
   if (updatedNote) {
-    res.json({ note: updatedNote });
+    res.json(updatedNote);
   } else {
     res.status(404).json({ message: "Note not found" });
   }
