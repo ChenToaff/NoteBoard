@@ -17,15 +17,11 @@ const authSlice = createSlice({
       state.isAuthenticated = false;
       state.loading = false;
     },
-    checkAuth: (state, action) => {
-      state.isAuthenticated = action.payload;
-      state.loading = false;
-    },
     authCheckStart: (state) => {
       state.loading = true;
     },
   },
 });
 
-export const { login, logout, checkAuth, authCheckStart } = authSlice.actions;
+export const { login, logout, authCheckStart } = authSlice.actions;
 export default authSlice.reducer;
