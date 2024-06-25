@@ -31,6 +31,10 @@ axiosInstance.interceptors.response.use(
     if (error.response && error.response.status === 401) {
       store.dispatch(logout());
     }
+    if (error.response && error.response.status === 400) {
+      const errorMessage = error.response.data?.message || "An error occurred";
+      return Promise.reject(new Error(errorMessage));
+    }
     return Promise.reject(error);
   }
 );
