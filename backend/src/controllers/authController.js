@@ -22,12 +22,12 @@ const login = (req, res) => {
   return res.status(200).send();
 };
 
-const logout = async (req, res) => {
+const logout = (req, res) => {
   res.clearCookie("token");
   return res.status(200).send();
 };
 
-const check = async (req, res) => {
+const check = (req, res) => {
   return res.status(200).send();
 };
 
