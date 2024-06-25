@@ -12,10 +12,8 @@ import {
 import Navbar from "components/Common/Navbar/Navbar";
 import Edit from "pages/EditPage/EditPage";
 import Home from "pages/ViewPage/ViewPage";
-import { useEffect, useState } from "react";
-import axios from "services/api";
-import useArray from "hooks/useArray";
-import { AuthProvider } from "context/authContext";
+import store from "store/store";
+import authService from "services/authService";
 
 export default function App() {
   const loggedIn = cookie.load("token");
@@ -53,4 +51,8 @@ export default function App() {
 }
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<App />);
+root.render(
+  <Provider store={store}>
+    <App />
+  </Provider>
+);
