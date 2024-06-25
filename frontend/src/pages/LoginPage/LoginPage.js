@@ -2,18 +2,22 @@ import "./LoginPage.css";
 import authService from "services/authService";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { useState } from "react";
 
 export default function Login() {
   const navigate = useNavigate();
-
+  const [error, setError] = useState("");
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
 
   if (isAuthenticated) navigate("/");
 
   async function handleSubmit(e) {
+    setError("");
     e.preventDefault();
     const { username, password } = Object.fromEntries(new FormData(e.target));
-    await authService.login(username, password);
+    authService.login(username, password).catch((err) => {
+      setError(err.message);
+    });
   }
 
   return (
@@ -38,8 +42,13 @@ export default function Login() {
         required
       ></input>
       <button className="btn btn-dark w-100" type="submit">
-        Login
+        login
       </button>
+      {error && (
+        <div class="alert alert-danger mt-3" role="alert">
+          {error}
+        </div>
+      )}
     </form>
   );
 }
