@@ -1,4 +1,5 @@
 const NoteModel = require("../models/NoteModel");
+const { NotFoundError } = require("../utils/ApiError");
 
 const NoteService = {
   createNote: async () => {
@@ -12,15 +13,23 @@ const NoteService = {
   },
 
   getNoteById: async (id) => {
-    return await NoteModel.findById(id);
+    const note = await NoteModel.findById(id);
+    if (!note) throw new NotFoundError("Note not found");
+    return note;
   },
 
   updateNote: async (id, update) => {
-    return await NoteModel.findByIdAndUpdate(id, update, { new: true });
+    const updatedNote = await NoteModel.findByIdAndUpdate(id, update, {
+      new: true,
+    });
+    if (!updatedNote) throw new NotFoundError("Note not found");
+    return updatedNote;
   },
 
   deleteNote: async (id) => {
-    return await NoteModel.findByIdAndDelete(id);
+    const deletedNote = await NoteModel.findByIdAndDelete(id);
+    if (!deletedNote) throw new NotFoundError("Note not found");
+    return deletedNote;
   },
 };
 
