@@ -3,7 +3,7 @@ const jwt = require("jsonwebtoken");
 const { JWT_SECRET } = require("../config");
 
 module.exports = async (req, res, next) => {
-  const { token } = req.cookies();
+  const { token } = req.cookies;
   if (!token) {
     return res.status(401).json({ message: "No token provided" });
   }
