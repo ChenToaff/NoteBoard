@@ -18,13 +18,8 @@ server.use("/api/images", [
   /*require("./middleware/auth"),*/
   express.static(path.join(process.cwd(), "images")),
 ]);
-server.use(function (req, res, next) {
-  res.status(404).send("Sorry can't find that!");
-});
 
-server.use(function (err, req, res, next) {
-  console.error(err.stack);
-  res.status(500).send("Something broke!");
-});
+server.use(require("./middleware/notFoundHandler"));
+server.use(require("./middleware/errorHandler"));
 
 server.listen(PORT, () => console.log(`server listening at port ${PORT}`));
