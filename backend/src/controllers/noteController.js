@@ -2,6 +2,7 @@ const NoteService = require("../services/noteService");
 const fs = require("fs");
 const path = require("path");
 const asyncHandler = require("../middleware/asyncHandler");
+const { NotFoundError } = require("../utils/ApiError");
 
 const createNote = asyncHandler(async (req, res) => {
   const note = await NoteService.createNote();
@@ -18,7 +19,7 @@ const getNoteById = asyncHandler(async (req, res) => {
   if (note) {
     res.json(note);
   } else {
-    res.status(404).json({ message: "Note not found" });
+    throw new NotFoundError("Note not found");
   }
 });
 
@@ -53,7 +54,7 @@ const updateNote = asyncHandler(async (req, res) => {
   if (updatedNote) {
     res.json(updatedNote);
   } else {
-    res.status(404).json({ message: "Note not found" });
+    throw new NotFoundError("Note not found");
   }
 });
 
@@ -62,7 +63,7 @@ const deleteNote = asyncHandler(async (req, res) => {
   if (note) {
     res.json({ message: "Note removed" });
   } else {
-    res.status(404).json({ message: "Note not found" });
+    throw new NotFoundError("Note not found");
   }
 });
 
