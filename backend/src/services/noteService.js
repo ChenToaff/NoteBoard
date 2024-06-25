@@ -12,15 +12,15 @@ const NoteService = {
   },
 
   getNoteById: async (id) => {
-    return await Note.findById(id);
+    return await NoteModel.findById(id);
   },
 
   updateNote: async (id, update) => {
-    return await Note.findByIdAndUpdate(id, update, { new: true });
+    return await NoteModel.findByIdAndUpdate(id, update, { new: true });
   },
 
   deleteNote: async (id) => {
-    return await Note.findByIdAndDelete(id);
+    return await NoteModel.findByIdAndDelete(id);
   },
 };
 
