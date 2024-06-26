@@ -16,7 +16,7 @@ export default function AddNoteBtn() {
         onClick={() => {
           axios
             .post("/notes", {})
-            .then((res) => addNote(res.data.note))
+            .then((res) => addNote(res.data))
             .catch(() => alert("failure!"));
         }}
       />
