@@ -20,7 +20,11 @@ export default function Edit() {
 
   return (
     <editContext.Provider value={{ notes }}>
-      <NotesContainer NoteType={EditableNote} notes={notes.array} />
+      <NotesContainer notes={notes.array}>
+        {notes.array.map((note, index) => (
+          <EditableNote key={index} note={note} index={index} />
+        ))}
+      </NotesContainer>
       <AddNoteBtn />
     </editContext.Provider>
   );

@@ -14,5 +14,12 @@ export default function Home() {
     }
     loadData();
   }, []);
-  return <NotesContainer NoteType={Note} notes={notes.array} />;
+
+  return (
+    <NotesContainer>
+      {notes.array.map((note, index) => (
+        <Note key={index} note={note} index={index} />
+      ))}
+    </NotesContainer>
+  );
 }

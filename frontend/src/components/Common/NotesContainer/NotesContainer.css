@@ -4,24 +4,24 @@
   padding-bottom: 10px;
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 450px) {
   .notes-container {
     width: 90vw;
   }
 }
 
-@media screen and (min-width: 401px) and (max-width: 800px) {
+@media screen and (min-width: 451px) and (max-width: 900px) {
   .notes-container {
-    width: 400px;
+    width: 450px;
   }
 }
-@media screen and (min-width: 801px) and (max-width: 1200px) {
+@media screen and (min-width: 901px) and (max-width: 1350px) {
   .notes-container {
-    width: 800px;
+    width: 900px;
   }
 }
-@media screen and (min-width: 1201px) {
+@media screen and (min-width: 1351px) {
   .notes-container {
-    width: 1200px;
+    width: 1350px;
   }
 }
