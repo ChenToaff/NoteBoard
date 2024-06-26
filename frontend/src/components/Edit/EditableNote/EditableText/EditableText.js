@@ -2,11 +2,11 @@ import axios from "services/api";
 import "./EditableText.css";
 import { useContext, useState } from "react";
 import useUpdateEffect from "hooks/useUpdateEffect";
-import { editableNoteContext } from "components/Edit/EditableNote/EditableNote";
+import useEditableNote from "hooks/useEditableNote";
 
 export default function EditableText({ note }) {
   const [value, setValue] = useState(note.text);
-  const { setNote } = useContext(editableNoteContext);
+  const { setNote } = useEditableNote();
 
   useUpdateEffect(() => {
     const delayFn = setTimeout(async () => {

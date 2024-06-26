@@ -5,21 +5,15 @@ import EditableImage from "./EditableImage/EditableImage";
 import ColorPicker from "./ColorPicker/ColorPicker";
 import AddImageBtn from "./AddImageBtn/AddImageBtn";
 import "./EditableNote.css";
-import { createContext, useContext, useState } from "react";
+import { useState } from "react";
 import Loading from "components/Common/Loading/Loading";
-import { editContext } from "pages/EditPage/EditPage";
-import { useCallback } from "react";
-
-export const editableNoteContext = createContext();
+import { EditableNoteProvider } from "context/EditableNoteContext";
 
 export default function EditableNote({ note, index }) {
-  const { notes } = useContext(editContext);
-  const setNote = useCallback((update) => notes.update(index, update), [index]);
-
   const [imageLoading, setImageLoading] = useState(false);
 
   return (
-    <editableNoteContext.Provider value={{ setNote }}>
+    <EditableNoteProvider index={index}>
       <div className="catg-card">
         <div data-color={note.color} className="Editable-Note">
           <EditableTitle note={note} />
@@ -40,6 +34,6 @@ export default function EditableNote({ note, index }) {
           </div>
         </div>
       </div>
-    </editableNoteContext.Provider>
+    </EditableNoteProvider>
   );
 }

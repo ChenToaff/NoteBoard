@@ -1,10 +1,10 @@
 import { useContext } from "react";
-import { editableNoteContext } from "components/Edit/EditableNote/EditableNote";
 import axios from "services/api";
 import "./AddImageBtn.css";
+import useEditableNote from "hooks/useEditableNote";
 
 export default function AddImageBtn({ note, setImageLoading }) {
-  const { setNote } = useContext(editableNoteContext);
+  const { setNote } = useEditableNote();
 
   async function uploadImage(e) {
     const formData = new FormData();

@@ -1,14 +1,13 @@
 import Image from "components/Common/Image/Image";
 import axios from "services/api";
 import "./EditableImage.css";
-
-import { editableNoteContext } from "components/Edit/EditableNote/EditableNote";
 import { useContext, useState } from "react";
 import Loading from "components/Common/Loading/Loading";
+import useEditableNote from "hooks/useEditableNote";
 
 export default function EditableImage({ note }) {
   const [loading, setLoading] = useState(false);
-  const { setNote } = useContext(editableNoteContext);
+  const { setNote } = useEditableNote();
 
   async function deleteImage() {
     setLoading(true);
