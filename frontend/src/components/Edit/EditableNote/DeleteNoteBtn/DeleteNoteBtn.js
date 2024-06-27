@@ -1,11 +1,10 @@
 import axios from "services/api";
-import { useContext } from "react";
-import { editContext } from "pages/EditPage/EditPage";
 import "./DeleteNoteBtn.css";
 import useEditableNote from "hooks/useEditableNote";
+import useNotes from "hooks/useNotes";
 
 export default function DeleteNoteBtn() {
-  const { notes } = useContext(editContext);
+  const notes = useNotes();
   const { note } = useEditableNote();
 
   function handleDelete(note) {

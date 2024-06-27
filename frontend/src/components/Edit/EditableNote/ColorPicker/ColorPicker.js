@@ -1,4 +1,3 @@
-import { useContext } from "react";
 import axios from "services/api";
 import "./ColorPicker.css";
 import useEditableNote from "hooks/useEditableNote";

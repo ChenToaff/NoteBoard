@@ -1,4 +1,3 @@
-import { useContext } from "react";
 import axios from "services/api";
 import "./AddImageBtn.css";
 import useEditableNote from "hooks/useEditableNote";

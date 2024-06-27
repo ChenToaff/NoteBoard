@@ -1,6 +1,6 @@
 import axios from "services/api";
 import "./EditableText.css";
-import { useContext, useState } from "react";
+import { useState } from "react";
 import useUpdateEffect from "hooks/useUpdateEffect";
 import useEditableNote from "hooks/useEditableNote";
 

@@ -1,10 +1,9 @@
 import axios from "services/api";
 import "./AddNoteBtn.css";
-import { useContext } from "react";
-import { editContext } from "pages/EditPage/EditPage";
+import useNotes from "hooks/useNotes";
 
 export default function AddNoteBtn() {
-  const { notes } = useContext(editContext);
+  const notes = useNotes();
   function addNote(note) {
     notes.set((oldNotes) => [note, ...oldNotes]);
     window.scrollTo({ top: 0, left: 0 });

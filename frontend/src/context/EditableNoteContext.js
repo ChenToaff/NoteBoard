@@ -1,10 +1,10 @@
-import { createContext, useCallback, useState, useContext } from "react";
-import { editContext } from "pages/EditPage/EditPage";
+import { createContext, useCallback, useState } from "react";
+import useNotes from "hooks/useNotes";
 
 export const editableNoteContext = createContext();
 
 export const EditableNoteProvider = ({ index, children }) => {
-  const { notes } = useContext(editContext);
+  const notes = useNotes();
 
   const setNote = useCallback(
     (update) => notes.update(index, update),
