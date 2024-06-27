@@ -1,8 +1,8 @@
 import Image from "components/Common/Image/Image";
 import axios from "services/api";
-import "./EditableImage.css";
 import Loading from "components/Common/Loading/Loading";
 import useEditableNote from "hooks/useEditableNote";
+import "./EditableImage.css";
 
 export default function EditableImage() {
   const { setNote, note, imageLoading, setImageLoading } = useEditableNote();
