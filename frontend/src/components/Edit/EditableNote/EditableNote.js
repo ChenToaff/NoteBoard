@@ -4,12 +4,11 @@ import EditableText from "./EditableText/EditableText";
 import EditableImage from "./EditableImage/EditableImage";
 import ColorPicker from "./ColorPicker/ColorPicker";
 import AddImageBtn from "./AddImageBtn/AddImageBtn";
-import Loading from "components/Common/Loading/Loading";
 import useEditableNote from "hooks/useEditableNote";
 import "./EditableNote.css";
 
 export default function EditableNote() {
-  const { note, imageLoading } = useEditableNote();
+  const { note } = useEditableNote();
 
   return (
     <div className="catg-card">
@@ -17,7 +16,7 @@ export default function EditableNote() {
         <EditableTitle />
         <DeleteNoteBtn />
         <EditableText />
-        {imageLoading ? <Loading /> : <EditableImage />}
+        <EditableImage />
         <div className="input-group ">
           <AddImageBtn />
           <ColorPicker />
