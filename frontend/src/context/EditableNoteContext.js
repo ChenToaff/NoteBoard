@@ -10,13 +10,14 @@ export const EditableNoteProvider = ({ index, children }) => {
     (update) => notes.update(index, update),
     [index, notes]
   );
-
+  const note = notes.array[index];
   const [imageLoading, setImageLoading] = useState(false);
 
   const value = {
     setNote,
     imageLoading,
     setImageLoading,
+    note,
   };
 
   return (

@@ -4,9 +4,9 @@ import { useContext, useState } from "react";
 import useUpdateEffect from "hooks/useUpdateEffect";
 import useEditableNote from "hooks/useEditableNote";
 
-export default function EditableText({ note }) {
+export default function EditableText() {
+  const { setNote, note } = useEditableNote();
   const [value, setValue] = useState(note.text);
-  const { setNote } = useEditableNote();
 
   useUpdateEffect(() => {
     const delayFn = setTimeout(async () => {

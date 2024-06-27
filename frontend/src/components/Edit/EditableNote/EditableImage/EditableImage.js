@@ -5,9 +5,9 @@ import { useContext, useState } from "react";
 import Loading from "components/Common/Loading/Loading";
 import useEditableNote from "hooks/useEditableNote";
 
-export default function EditableImage({ note }) {
+export default function EditableImage() {
+  const { setNote, note } = useEditableNote();
   const [loading, setLoading] = useState(false);
-  const { setNote } = useEditableNote();
 
   async function deleteImage() {
     setLoading(true);

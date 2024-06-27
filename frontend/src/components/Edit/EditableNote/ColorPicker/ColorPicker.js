@@ -3,8 +3,8 @@ import axios from "services/api";
 import "./ColorPicker.css";
 import useEditableNote from "hooks/useEditableNote";
 
-export default function ColorPicker({ note }) {
-  const { setNote } = useEditableNote();
+export default function ColorPicker() {
+  const { setNote, note } = useEditableNote();
 
   function changeColor(color) {
     axios

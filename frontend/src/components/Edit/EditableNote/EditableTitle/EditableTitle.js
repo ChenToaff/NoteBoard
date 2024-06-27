@@ -4,9 +4,9 @@ import useUpdateEffect from "hooks/useUpdateEffect";
 import "./EditableTitle.css";
 import useEditableNote from "hooks/useEditableNote";
 
-export default function EditableTitle({ note }) {
+export default function EditableTitle() {
+  const { setNote, note } = useEditableNote();
   const [value, setValue] = useState(note.title);
-  const { setNote } = useEditableNote();
 
   useUpdateEffect(() => {
     const delayFn = setTimeout(async () => {

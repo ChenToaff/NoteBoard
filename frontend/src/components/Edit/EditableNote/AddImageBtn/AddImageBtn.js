@@ -3,8 +3,8 @@ import axios from "services/api";
 import "./AddImageBtn.css";
 import useEditableNote from "hooks/useEditableNote";
 
-export default function AddImageBtn({ note, setImageLoading }) {
-  const { setNote } = useEditableNote();
+export default function AddImageBtn() {
+  const { setNote, note, setImageLoading } = useEditableNote();
 
   async function uploadImage(e) {
     const formData = new FormData();
