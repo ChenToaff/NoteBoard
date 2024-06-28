@@ -1,6 +1,6 @@
-import axios from "services/api";
 import "./AddNoteBtn.css";
 import useNotes from "hooks/useNotes";
+import axiosInstance from "services/api";
 
 export default function AddNoteBtn() {
   const notes = useNotes();
@@ -13,10 +13,7 @@ export default function AddNoteBtn() {
       <div
         className="AddNoteBtn note-shadow"
         onClick={() => {
-          axios
-            .post("/notes", {})
-            .then((res) => addNote(res.data))
-            .catch(() => alert("failure!"));
+          axiosInstance.post("/notes", {}).then((res) => addNote(res.data));
         }}
       />
     </div>
