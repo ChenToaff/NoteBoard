@@ -9,13 +9,8 @@ export default function EditableText() {
   const [value, setValue] = useState(note.text);
 
   useUpdateEffect(() => {
-    const delayFn = setTimeout(async () => {
-      await axios.patch(`/notes/${note._id}`, {
-        text: value,
-      });
-      setNote({ ...note, updatedAt: new Date().toISOString() });
-    }, 500);
-    return () => clearTimeout(delayFn);
+    setNote((prevNote) => ({ ...prevNote, text: value }));
+  }, [value]);
   }, [value]);
 
   return (

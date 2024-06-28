@@ -5,11 +5,6 @@ import useEditableNote from "hooks/useEditableNote";
 export default function ColorPicker() {
   const { setNote, note } = useEditableNote();
 
-  function changeColor(color) {
-    axios
-      .patch(`/notes/${note._id}`, { color })
-      .then((res) => setNote(res.data));
-  }
   return (
     <button className="color-picker">
       <svg
@@ -36,7 +31,7 @@ export default function ColorPicker() {
                 "mini-circle " + (note.color == color ? "selected" : null)
               }
               data-color={color}
-              onClick={() => changeColor(color)}
+              onClick={() => setNote((prevNote) => ({ ...prevNote, color }))}
             ></div>
           )
         )}

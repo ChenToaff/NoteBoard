@@ -9,13 +9,7 @@ export default function EditableTitle() {
   const [value, setValue] = useState(note.title);
 
   useUpdateEffect(() => {
-    const delayFn = setTimeout(async () => {
-      await axios.patch(`/notes/${note._id}`, {
-        title: value,
-      });
-      setNote({ ...note, updatedAt: new Date().toISOString() });
-    }, 500);
-    return () => clearTimeout(delayFn);
+    setNote((prevNote) => ({ ...prevNote, title: value }));
   }, [value]);
 
   return (
