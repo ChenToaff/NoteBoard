@@ -1,27 +1,15 @@
-.Editable-Note > .text-box:hover {
-  cursor: text;
+.Editable-Note > .text-area {
+  width: 100%;
+  background: transparent;
+  font-size: 16px;
+  border: none !important;
+  padding: 10px;
+  resize: none;
+  overflow: hidden;
+  min-height: 50px;
 }
 
-.Editable-Note > .text-box {
-  word-wrap: break-word;
-  word-break: break-word;
-  white-space: pre-line;
-  width: 95%;
-  padding: 5px;
-  overflow-y: auto;
-}
-.Editable-Note > .text-box * {
-  display: inline-block;
-}
-.Editable-Note > .text-box:empty::before {
-  content: attr(placeholder);
-  color: #555;
-}
-
-.Editable-Note > .text-box:focus-visible {
+.Editable-Note > .text-area:focus-visible {
   border: none;
   outline: none !important;
-}
-.Editable-Note > .text-box > * {
-  background-color: transparent !important;
 }

@@ -1,32 +1,29 @@
-import axios from "services/api";
+import React, { useState, useEffect, useRef } from "react";
 import "./EditableText.css";
-import { useState } from "react";
-import useUpdateEffect from "hooks/useUpdateEffect";
 import useEditableNote from "hooks/useEditableNote";
+import useUpdateEffect from "hooks/useUpdateEffect";
 
 export default function EditableText() {
   const { setNote, note } = useEditableNote();
   const [value, setValue] = useState(note.text);
+  const textAreaRef = useRef(null);
 
   useUpdateEffect(() => {
     setNote((prevNote) => ({ ...prevNote, text: value }));
   }, [value]);
+
+  useEffect(() => {
+    textAreaRef.current.style.height = "auto"; // Reset height to shrink if text is deleted
+    textAreaRef.current.style.height = `${textAreaRef.current.scrollHeight}px`; // Set height based on content
   }, [value]);
 
   return (
-    <div
+    <textarea
+      ref={textAreaRef}
+      className="text-area"
       placeholder="Your text goes here"
-      className="text-box"
-      contentEditable="true"
-      suppressContentEditableWarning
-      onKeyDown={(e) => {
-        if (e.key === "Enter" && !e.shiftKey) {
-          e.preventDefault();
-        }
-      }}
-      onInputCapture={(e) => setValue(e.currentTarget.textContent)}
-    >
-      {note.text}
-    </div>
+      value={value}
+      onChange={(e) => setValue(e.target.value)}
+    />
   );
 }
