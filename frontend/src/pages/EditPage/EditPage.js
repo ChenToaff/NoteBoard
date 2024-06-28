@@ -1,4 +1,4 @@
-import { createContext } from "react";
+import { createContext, useEffect } from "react";
 import EditableNote from "components/Edit/EditableNote/EditableNote";
 import NotesContainer from "components/Common/NotesContainer/NotesContainer";
 import AddNoteBtn from "components/Edit/AddNoteBtn/AddNoteBtn";
@@ -12,8 +12,8 @@ export default function Edit() {
   return (
     <>
       <NotesContainer notes={notes.array}>
-        {notes.array.map((note, index) => (
-          <EditableNoteProvider key={index} index={index}>
+        {notes.array.map((note) => (
+          <EditableNoteProvider key={note.id} noteId={note.id}>
             <EditableNote />
           </EditableNoteProvider>
         ))}

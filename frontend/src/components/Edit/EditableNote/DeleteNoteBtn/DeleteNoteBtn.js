@@ -1,7 +1,7 @@
-import axios from "services/api";
-import "./DeleteNoteBtn.css";
 import useEditableNote from "hooks/useEditableNote";
 import useNotes from "hooks/useNotes";
+import axiosInstance from "services/api";
+import "./DeleteNoteBtn.css";
 
 export default function DeleteNoteBtn() {
   const notes = useNotes();
@@ -9,12 +9,9 @@ export default function DeleteNoteBtn() {
 
   function handleDelete(note) {
     notes.set((oldNotes) =>
-      oldNotes.filter((element) => element._id != note._id)
+      oldNotes.filter((element) => element.id != note.id)
     );
-    axios.delete(`/notes/${note._id}`).catch(() => {
-      alert("failure!");
-      window.location.reload(true);
-    });
+    axiosInstance.delete(`/notes/${note.id}`);
   }
   return (
     <button className="Delete-Btn" onClick={() => handleDelete(note)}>

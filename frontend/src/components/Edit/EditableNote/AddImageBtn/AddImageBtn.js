@@ -9,7 +9,7 @@ export default function AddImageBtn() {
     const formData = new FormData();
     formData.set("image", e.target.files[0]);
     setImageLoading(true);
-    const res = await axios.patch(`/notes/${note._id}`, formData, {
+    const res = await axios.patch(`/notes/${note.id}`, formData, {
       headers: {
         "Content-Type": "multipart/form-data",
       },
