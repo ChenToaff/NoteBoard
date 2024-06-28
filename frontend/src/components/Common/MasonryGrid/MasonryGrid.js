@@ -7,16 +7,19 @@ const MasonryGrid = ({ children }) => {
   const resizeGridItem = (item) => {
     const grid = gridRef.current;
     const rowHeight = parseInt(
-      window.getComputedStyle(grid).getPropertyValue("grid-auto-rows")
+      window.getComputedStyle(grid).getPropertyValue("grid-auto-rows"),
+      10
     );
     const rowGap = parseInt(
-      window.getComputedStyle(grid).getPropertyValue("grid-gap")
+      window.getComputedStyle(grid).getPropertyValue("grid-gap"),
+      10
     );
     const rowSpan = Math.ceil(
       (item.querySelector(".content").getBoundingClientRect().height + rowGap) /
         (rowHeight + rowGap)
     );
     item.style.gridRowEnd = `span ${rowSpan}`;
+    item.style.visibility = "visible"; // Make the item visible after resizing
   };
 
   const resizeAllGridItems = () => {
@@ -28,35 +31,33 @@ const MasonryGrid = ({ children }) => {
 
   useLayoutEffect(() => {
     resizeAllGridItems();
-
-    const handleResize = () => resizeAllGridItems();
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, [children]);
+    window.addEventListener("resize", resizeAllGridItems);
+    return () => window.removeEventListener("resize", resizeAllGridItems);
+  }, []);
 
   useEffect(() => {
     const images = gridRef.current.getElementsByTagName("img");
     const handleImageLoad = () => resizeAllGridItems();
 
-    if (images.length > 0) {
-      for (let i = 0; i < images.length; i++) {
-        if (!images[i].complete) {
-          images[i].addEventListener("load", handleImageLoad);
-          images[i].addEventListener("error", handleImageLoad);
-        }
+    Array.from(images).forEach((image) => {
+      if (!image.complete) {
+        image.addEventListener("load", handleImageLoad);
+        image.addEventListener("error", handleImageLoad);
       }
+    });
+
+    // Initial resize when images are already loaded but component just mounted
+    if (Array.from(images).every((img) => img.complete)) {
+      resizeAllGridItems();
     }
 
     return () => {
-      for (let i = 0; i < images.length; i++) {
-        images[i].removeEventListener("load", handleImageLoad);
-        images[i].removeEventListener("error", handleImageLoad);
-      }
+      Array.from(images).forEach((image) => {
+        image.removeEventListener("load", handleImageLoad);
+        image.removeEventListener("error", handleImageLoad);
+      });
     };
-  }, [children]);
+  }, [children]); // Monitoring children to reapply effects if children change
 
   return (
     <div className="grid" ref={gridRef}>
