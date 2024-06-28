@@ -2,6 +2,7 @@
   margin: auto !important;
   margin-top: 80px !important;
   padding-bottom: 10px;
+  text-align: center;
 }
 
 @media screen and (max-width: 450px) {
