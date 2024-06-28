@@ -1,18 +1,14 @@
 .Editable-Note > .Delete-Btn {
-  height: fit-content;
-  border: 1px solid transparent;
+  border: none;
   background-color: transparent;
   font-weight: bolder;
   cursor: pointer;
   color: #6c757d;
-  max-width: 10%;
-  text-align: end;
-  vertical-align: unset;
-  margin-top: 0;
+  width: 25px;
+  height: 25px;
   margin-left: auto;
   transform: translateX(8px);
 }
 .Editable-Note > .Delete-Btn:hover {
-  transform: scale(1.1);
   color: #f8f9fa;
 }
