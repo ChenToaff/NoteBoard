@@ -24,7 +24,7 @@ const getNoteById = asyncHandler(async (req, res) => {
 });
 
 const updateNote = asyncHandler(async (req, res) => {
-  const { title, content, color, image } = req.body;
+  const { title, text, color, image } = req.body;
   const id = req.params.id;
   const note = await NoteService.getNoteById(id);
   let imageSRC = note.image;
@@ -47,7 +47,7 @@ const updateNote = asyncHandler(async (req, res) => {
   }
   const updatedNote = await NoteService.updateNote(req.params.id, {
     title,
-    content,
+    text,
     color,
     image: imageSRC,
   });
