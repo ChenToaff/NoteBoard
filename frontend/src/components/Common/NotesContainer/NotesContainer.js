@@ -4,7 +4,7 @@ import MasonryGrid from "../MasonryGrid/MasonryGrid";
 export default function NotesContainer({ children }) {
   return (
     <div className="notes-container">
-      <MasonryGrid>{children} </MasonryGrid>;
+      <MasonryGrid>{children} </MasonryGrid>
     </div>
   );
 }
