@@ -28,18 +28,10 @@ export default function App() {
         <Navbar />
         <Routes>
           <Route
-            path="/edit"
-            element={
-              <ProtectedRoute>
-                <Edit />
-              </ProtectedRoute>
-            }
-          />
-          <Route
             path="/home"
             element={
               <ProtectedRoute>
-                <Home />
+                <Edit />
               </ProtectedRoute>
             }
           />

@@ -21,16 +21,6 @@ export default function Navbar() {
       </a>
 
       {location.pathname === "/home" && (
-        <a className="ms-auto" href={"/edit"}>
-          <img src={edit} width="30" height="30" alt="edit"></img>
-        </a>
-      )}
-      {location.pathname === "/edit" && (
-        <a className="ms-auto" href={"/home"}>
-          <img src={home} width="30" height="30" alt="edit"></img>
-        </a>
-      )}
-      {location.pathname !== "/login" && (
         <a
           className="mx-3"
           onClick={async () => await authService.logout()}
