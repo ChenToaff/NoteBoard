@@ -1,21 +1,21 @@
 import axios from "services/api";
 import "./AddImageBtn.css";
-import useEditableNote from "hooks/useEditableNote";
+import useSelectedNote from "hooks/useSelectedNote";
 
 export default function AddImageBtn() {
-  const { setNote, note, setImageLoading } = useEditableNote();
+  const { setSelectedNote, selectedNote, setImageLoading } = useSelectedNote();
 
   async function uploadImage(e) {
     const formData = new FormData();
     formData.set("image", e.target.files[0]);
     setImageLoading(true);
-    const res = await axios.patch(`/notes/${note.id}`, formData, {
+    const res = await axios.patch(`/notes/${selectedNote.id}`, formData, {
       headers: {
         "Content-Type": "multipart/form-data",
       },
     });
     setImageLoading(false);
-    setNote(res.data);
+    setSelectedNote(res.data);
     e.target.value = "";
   }
 

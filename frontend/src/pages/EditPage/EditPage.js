@@ -2,8 +2,10 @@ import { createContext, useEffect } from "react";
 import EditableNote from "components/Edit/EditableNote/EditableNote";
 import NotesContainer from "components/Common/NotesContainer/NotesContainer";
 import AddNoteBtn from "components/Edit/AddNoteBtn/AddNoteBtn";
-import { EditableNoteProvider } from "context/EditableNoteContext";
+import { SelectedNoteProvider } from "context/SelectedNoteContext";
 import useNotes from "hooks/useNotes";
+import Note from "components/View/Note/Note";
+import "./EditPage.css";
 
 export const editContext = createContext();
 
@@ -11,14 +13,14 @@ export default function Edit() {
   const notes = useNotes();
   return (
     <>
+      <SelectedNoteProvider>
       <NotesContainer notes={notes.array}>
         {notes.array.map((note) => (
-          <EditableNoteProvider key={note.id} noteId={note.id}>
-            <EditableNote />
-          </EditableNoteProvider>
+            <Note noteId={note.id} key={note.id} />
         ))}
       </NotesContainer>
       <AddNoteBtn />
+      </SelectedNoteProvider>
     </>
   );
 }

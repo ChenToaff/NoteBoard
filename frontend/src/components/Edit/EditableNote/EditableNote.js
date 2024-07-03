@@ -4,15 +4,17 @@ import EditableText from "./EditableText/EditableText";
 import EditableImage from "./EditableImage/EditableImage";
 import ColorPicker from "./ColorPicker/ColorPicker";
 import AddImageBtn from "./AddImageBtn/AddImageBtn";
-import useEditableNote from "hooks/useEditableNote";
+import useSelectedNote from "hooks/useSelectedNote";
 import "./EditableNote.css";
 
 export default function EditableNote() {
-  const { note } = useEditableNote();
+  const { selectedNote, setSelectedNoteId } = useSelectedNote();
+
+  if (!selectedNote) return null;
 
   return (
     <div className="catg-card">
-      <div data-color={note.color} className="Editable-Note">
+      <div data-color={selectedNote.color} className="Editable-Note">
         <EditableTitle />
         <DeleteNoteBtn />
         <EditableText />
@@ -22,7 +24,7 @@ export default function EditableNote() {
           <ColorPicker />
         </div>
         <div className="Last-Modified">
-          {note.updatedAt?.slice(0, 19).replace("T", " ")}
+          {selectedNote.updatedAt?.slice(0, 19).replace("T", " ")}
         </div>
       </div>
     </div>

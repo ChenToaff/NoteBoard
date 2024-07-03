@@ -1,15 +1,15 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./EditableText.css";
-import useEditableNote from "hooks/useEditableNote";
+import useSelectedNote from "hooks/useSelectedNote";
 import useUpdateEffect from "hooks/useUpdateEffect";
 
 export default function EditableText() {
-  const { setNote, note } = useEditableNote();
-  const [value, setValue] = useState(note.text);
+  const { setSelectedNote, selectedNote } = useSelectedNote();
+  const [value, setValue] = useState(selectedNote.text);
   const textAreaRef = useRef(null);
 
   useUpdateEffect(() => {
-    setNote((prevNote) => ({ ...prevNote, text: value }));
+    setSelectedNote((prevNote) => ({ ...prevNote, text: value }));
   }, [value]);
 
   useEffect(() => {
@@ -19,6 +19,7 @@ export default function EditableText() {
 
   return (
     <textarea
+      autoFocus
       ref={textAreaRef}
       className="text-area"
       placeholder="Your text goes here"

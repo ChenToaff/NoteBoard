@@ -2,14 +2,14 @@ import axios from "services/api";
 import { useState } from "react";
 import useUpdateEffect from "hooks/useUpdateEffect";
 import "./EditableTitle.css";
-import useEditableNote from "hooks/useEditableNote";
+import useSelectedNote from "hooks/useSelectedNote";
 
 export default function EditableTitle() {
-  const { setNote, note } = useEditableNote();
-  const [value, setValue] = useState(note.title);
+  const { setSelectedNote, selectedNote } = useSelectedNote();
+  const [value, setValue] = useState(selectedNote.title);
 
   useUpdateEffect(() => {
-    setNote((prevNote) => ({ ...prevNote, title: value }));
+    setSelectedNote((prevNote) => ({ ...prevNote, title: value }));
   }, [value]);
 
   return (
