@@ -7,7 +7,11 @@
   min-height: 200px;
   padding: 6px 8px 4px 8px;
   text-align: left;
-  /* max-height: 470px; */
+}
+
+.Editable-Note.selected {
+  transition: all 0.3s ease-in-out;
+  visibility: hidden;
 }
 
 .Editable-Note > .Last-Modified {
@@ -50,4 +54,34 @@
 .Edit-close:hover,
 .input-group > button:hover {
   color: black !important;
+}
+
+.note-options-container {
+  position: relative;
+  width: 100%;
+}
+
+.note-options-container button {
+  color: #6c757d;
+  height: 40px;
+  width: 40px;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+}
+
+.note-options-container button:hover {
+  color: black;
+  cursor: pointer;
+  background: #a6b3be73;
+  border-radius: 50% !important;
+  transform: none !important;
+}
+
+.note-options-container button svg {
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  margin: 0;
 }

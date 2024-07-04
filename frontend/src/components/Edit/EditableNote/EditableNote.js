@@ -1,4 +1,5 @@
 import DeleteNoteBtn from "./DeleteNoteBtn/DeleteNoteBtn";
+import CloseNoteBtn from "./CloseNoteBtn/CloseNoteBtn";
 import EditableTitle from "./EditableTitle/EditableTitle";
 import EditableText from "./EditableText/EditableText";
 import EditableImage from "./EditableImage/EditableImage";
@@ -8,24 +9,23 @@ import useSelectedNote from "hooks/useSelectedNote";
 import "./EditableNote.css";
 
 export default function EditableNote() {
-  const { selectedNote, setSelectedNoteId } = useSelectedNote();
+  const { selectedNote } = useSelectedNote();
 
   if (!selectedNote) return null;
 
   return (
-    <div className="catg-card">
-      <div data-color={selectedNote.color} className="Editable-Note">
-        <EditableTitle />
+    <div className="Editable-Note" data-color={selectedNote.color}>
+      <EditableTitle />
+      <CloseNoteBtn />
+      <EditableText />
+      <EditableImage />
+      <div className="note-options-container">
+        <AddImageBtn />
+        <ColorPicker />
         <DeleteNoteBtn />
-        <EditableText />
-        <EditableImage />
-        <div className="input-group ">
-          <AddImageBtn />
-          <ColorPicker />
-        </div>
-        <div className="Last-Modified">
-          {selectedNote.updatedAt?.slice(0, 19).replace("T", " ")}
-        </div>
+      </div>
+      <div className="Last-Modified">
+        {selectedNote.updatedAt?.slice(0, 19).replace("T", " ")}
       </div>
     </div>
   );
