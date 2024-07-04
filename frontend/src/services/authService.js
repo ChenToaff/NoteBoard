@@ -20,7 +20,9 @@ class authService {
     try {
       const response = await axiosInstance.get("/auth/check");
       store.dispatch(login());
-    } catch (err) {}
+    } catch (err) {
+      store.dispatch(logout());
+    }
   };
 }
 
