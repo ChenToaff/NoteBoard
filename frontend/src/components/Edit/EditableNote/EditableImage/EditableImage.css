@@ -1,13 +1,14 @@
 .image-container {
   position: relative;
   margin: auto;
+  text-align: center;
 }
 .image-trash-can {
   top: 0;
   width: 30px;
   height: 30px;
   position: absolute;
-
+  z-index: 1;
   left: 0;
   right: 0;
   bottom: 0;
