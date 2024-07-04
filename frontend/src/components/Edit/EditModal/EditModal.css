@@ -9,5 +9,6 @@
 }
 .edit-modal .modal-dialog {
   width: fit-content;
+  max-width: 600px;
   transition: all 2.3s ease-in-out;
 }

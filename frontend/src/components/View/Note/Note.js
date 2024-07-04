@@ -10,14 +10,13 @@ export default function Note({ noteId }) {
 
   return (
     <div
+      data-color={note.color}
       onClick={() => setSelectedNoteId(noteId)}
-      className={`catg-card ${isSelected ? "selected" : ""}`}
+      className={`note rounded note-shadow ${isSelected ? "selected" : ""}`}
     >
-      <div data-color={note.color} className="note rounded note-shadow">
-        <h1>{note.title}</h1>
-        <p className="m-0">{note.text}</p>
-        <Image image={note.image} />
-      </div>
+      <h1>{note.title}</h1>
+      <p className="m-0">{note.text}</p>
+      <Image image={note.image} />
     </div>
   );
 }
