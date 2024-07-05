@@ -1,0 +1,33 @@
+services:
+  backend:
+    restart: always
+    build: ./backend
+    hostname: backend
+    environment:
+      - NODE_ENV=production
+      - MONGO_URI=mongodb://mongo.docker/Notes
+    depends_on:
+      - mongo
+
+  frontend:
+    restart: always
+    hostname: frontend
+    build: ./client
+
+  mongo:
+    image: mongo:5
+    hostname: mongo.docker
+    restart: always
+    # ports:
+    #   - 127.0.0.1:27017:27017
+
+  nginx:
+    restart: always
+    image: nginx
+    ports:
+      - 3000:80
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - frontend
+      - backend

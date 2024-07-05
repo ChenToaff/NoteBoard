@@ -1,0 +1,12 @@
+.login-page {
+  margin: auto !important;
+  margin-top: 200px !important;
+  width: 250px;
+}
+
+.login-page > input {
+  margin-top: 6px;
+}
+.login-page > button {
+  margin-top: 20px;
+}

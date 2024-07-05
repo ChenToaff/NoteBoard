@@ -1,0 +1,15 @@
+.Editable-Note > .text-area {
+  width: 100%;
+  background: transparent;
+  font-size: 16px;
+  border: none !important;
+  padding: 10px;
+  resize: none;
+  overflow: hidden;
+  min-height: 50px;
+}
+
+.Editable-Note > .text-area:focus-visible {
+  border: none;
+  outline: none !important;
+}

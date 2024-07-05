@@ -1,31 +1,49 @@
-# Notes
+# NoteBoard
 
-A Notes web application built in React.
-<br>
-in Notes, an "Admin" can edit the Notes for everyone to see.
+NoteBoard is a dynamic note-taking web application inspired by Google Keep. It allows users to create, edit, and organize sticky notes in a user-friendly interface. Notes can be customized with different colors and images, and users have the ability to create, update, and delete their notes.
 
-<img src="Readme Files/Notes.gif">
+## Features
 
-# [`The Server`](server/App.js):
+- **User Authentication:** Secure login system to access and manage personal notes.
+- **Edit Notes:** Users can freely edit the title and body of their sticky notes.
+- **Customize Appearance:** Options to change the color schemes of notes and add images to them.
+- **Responsive Design:** Optimized for both desktop and mobile devices.
 
-Built in Express - Node.js.
+## Technology Stack
 
-## Usage:
+- Backend: Express.js, MongoDB
+- Frontend: React.js, Bootstrap
+- Authentication: JWT (JSON Web Tokens)
+- Deployment: Docker, NGINX
 
-```javascript
-cd server
-npm install
-npm start
-```
+## Installation
 
-# [`The Client`](client/App.js):
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/ChenToaff/NoteBoard.git
+   cd NoteBoard
+   ```
+2. Build and run the Docker containers:
+   ```bash
+   docker-compose up --build
+   ```
 
-Built in React and Bootstrap.
+## Usage
 
-## Usage:
+1. Open your web browser and navigate to `http://localhost:3000` to access the NoteBoard application.
+2. Log in with:
 
-```javascript
-cd client
-npm install
-npm start
-```
+   - Username: `admin` (Can be configured with `ADMIN_USERNAME`).
+   - Password: `admin` (Can be configured with `ADMIN_PASSWORD`).
+
+3. Explore the board and interact with the notes.
+
+## Screenshots
+
+### Desktop
+
+![desktop](./assets/desktop.gif)
+
+### Mobile
+
+![mobile](./assets/mobile.gif)

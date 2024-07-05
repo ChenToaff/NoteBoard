@@ -1,0 +1,52 @@
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.row {
+  flex-wrap: nowrap;
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+.rounded {
+  border-radius: 10px !important;
+}
+
+.form-control:focus {
+  color: #212529;
+  background-color: #fff;
+  border-color: #212529;
+  outline: 0;
+  box-shadow: 0 0 0 0.1rem #212529;
+}
