@@ -8,6 +8,8 @@
   top: 130px;
 }
 .edit-modal .modal-dialog {
+  padding: 20px;
+  margin: auto;
   width: fit-content;
   max-width: 600px;
   transition: all 2.3s ease-in-out;

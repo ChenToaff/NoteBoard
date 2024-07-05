@@ -4,6 +4,7 @@
   grid-template-columns: repeat(auto-fill, 450px);
   grid-auto-rows: 0;
   justify-content: center;
+  overflow: hidden;
 }
 .item {
   transition: all 0.3s ease-in-out;
