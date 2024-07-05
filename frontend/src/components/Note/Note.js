@@ -1,4 +1,4 @@
-import Image from "components/Common/Image/Image";
+import Image from "components/Image/Image";
 import "./Note.css";
 import useNote from "hooks/useNote";
 import useSelectedNote from "hooks/useSelectedNote";

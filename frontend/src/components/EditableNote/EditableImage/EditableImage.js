@@ -1,6 +1,6 @@
-import Image from "components/Common/Image/Image";
+import Image from "components/Image/Image";
 import axios from "services/api";
-import Loading from "components/Common/Loading/Loading";
+import Loading from "components/Loading/Loading";
 import useSelectedNote from "hooks/useSelectedNote";
 import "./EditableImage.css";
 

@@ -1,12 +1,12 @@
 import { createContext, useEffect } from "react";
-import EditableNote from "components/Edit/EditableNote/EditableNote";
-import NotesContainer from "components/Common/NotesContainer/NotesContainer";
-import AddNoteBtn from "components/Edit/AddNoteBtn/AddNoteBtn";
+import EditableNote from "components/EditableNote/EditableNote";
+import NotesContainer from "components/NotesContainer/NotesContainer";
+import AddNoteBtn from "components/AddNoteBtn/AddNoteBtn";
 import { SelectedNoteProvider } from "context/SelectedNoteContext";
 import useNotes from "hooks/useNotes";
-import Note from "components/View/Note/Note";
+import Note from "components/Note/Note";
 import "./EditPage.css";
-import EditModal from "components/Edit/EditModal/EditModal";
+import EditModal from "components/EditModal/EditModal";
 
 export const editContext = createContext();
 
