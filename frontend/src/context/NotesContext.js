@@ -1,10 +1,4 @@
-import {
-  createContext,
-  useCallback,
-  useState,
-  useContext,
-  useEffect,
-} from "react";
+import { createContext, useEffect } from "react";
 import useArray from "hooks/useArray";
 import axiosInstance from "services/api";
 

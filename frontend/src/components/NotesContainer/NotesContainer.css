@@ -1,0 +1,28 @@
+.notes-container {
+  margin: auto !important;
+  margin-top: 80px !important;
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+@media screen and (max-width: 500px) {
+  .notes-container {
+    width: 90vw;
+  }
+}
+
+@media screen and (min-width: 501px) and (max-width: 1000px) {
+  .notes-container {
+    width: 500px;
+  }
+}
+@media screen and (min-width: 1001px) and (max-width: 1500px) {
+  .notes-container {
+    width: 1000px;
+  }
+}
+@media screen and (min-width: 1501px) {
+  .notes-container {
+    width: 1500px;
+  }
+}

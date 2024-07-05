@@ -1,16 +1,16 @@
 import ReactDOM from "react-dom/client";
 import Login from "./pages/LoginPage/LoginPage";
-import "index.css";
 import { Route, Routes, Navigate, BrowserRouter } from "react-router-dom";
-import Navbar from "components/Common/Navbar/Navbar";
+import Navbar from "components/Navbar/Navbar";
 import Edit from "pages/EditPage/EditPage";
-import Home from "pages/ViewPage/ViewPage";
 import { useEffect } from "react";
-import ProtectedRoute from "components/Common/ProtectedRoute/ProtectedRoute";
+import ProtectedRoute from "components/ProtectedRoute/ProtectedRoute";
 import { Provider, useSelector } from "react-redux";
 import store from "store/store";
 import authService from "services/authService";
-import Loading from "components/Common/Loading/Loading";
+import Loading from "components/Loading/Loading";
+import "bootstrap/dist/css/bootstrap.css";
+import "index.css";
 
 export default function App() {
   const { loading } = useSelector((state) => state.auth);
@@ -28,18 +28,10 @@ export default function App() {
         <Navbar />
         <Routes>
           <Route
-            path="/edit"
-            element={
-              <ProtectedRoute>
-                <Edit />
-              </ProtectedRoute>
-            }
-          />
-          <Route
             path="/home"
             element={
               <ProtectedRoute>
-                <Home />
+                <Edit />
               </ProtectedRoute>
             }
           />

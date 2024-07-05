@@ -1,0 +1,16 @@
+.edit-modal .modal-content {
+  width: fit-content;
+  position: relative;
+  display: block;
+  background: none;
+  border: none;
+  text-align: center;
+  top: 130px;
+}
+.edit-modal .modal-dialog {
+  padding: 20px;
+  margin: auto;
+  width: fit-content;
+  max-width: 600px;
+  transition: all 2.3s ease-in-out;
+}

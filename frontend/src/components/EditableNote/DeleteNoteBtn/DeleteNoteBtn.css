@@ -1,0 +1,22 @@
+.delete-note-btn {
+  color: #6c757d;
+  margin: 2px;
+  padding: 2px !important;
+  height: fit-content;
+}
+
+.delete-note-btn:hover {
+  color: black;
+  cursor: pointer;
+  background: #a6b3be73;
+  border-radius: 50% !important;
+  transform: none !important;
+}
+
+.delete-note-btn:focus .tooltiptext {
+  visibility: visible;
+}
+
+.delete-note-btn svg {
+  padding: 0;
+}

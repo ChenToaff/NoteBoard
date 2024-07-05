@@ -1,0 +1,28 @@
+.note.selected {
+  visibility: hidden;
+}
+
+@media screen and (max-width: 400px) {
+  .note {
+    width: 90vw;
+  }
+}
+.note {
+  margin: auto;
+  min-height: 200px;
+  padding: 12px;
+  text-align: left;
+}
+.note p {
+  white-space: pre-line;
+  word-wrap: break-word;
+  word-break: break-word;
+}
+
+.note h1 {
+  margin-bottom: 0;
+}
+
+.note-shadow {
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
